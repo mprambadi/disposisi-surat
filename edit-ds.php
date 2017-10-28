@@ -22,7 +22,7 @@ $sql = "UPDATE `tbl_disposisi_surat` SET
  `diteruskan_kpd` =  '$imp' 
  WHERE `no_surat` = '$id' "; 
 
-$mysqli->query($sql) or die(mysql_error());
+$mysqli->query($sql) or die($mysqli->error);
 echo "<meta http-equiv='refresh' content='0; url=dash.php'>"; ?>
 
 <?php }

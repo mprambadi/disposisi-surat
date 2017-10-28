@@ -35,8 +35,8 @@ if (isset($_POST['disposiskan'])) {
          SET 
       `status`='disposed' 
        where `no_surat`='$id' ";
-    $mysqli->query($sql) or die(mysql_error());
-    $mysqli->query($sql1) or die(mysql_error());
+    $mysqli->query($sql) or die($mysqli->error);
+    $mysqli->query($sql1) or die($mysqli->error);
     header("location: dash.php"); ?>
 
 <?php }

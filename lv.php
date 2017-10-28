@@ -1,10 +1,21 @@
 <?php 
-  $res = $mysqli->query("select * from tbl_pengguna where nip='$username'");
-  $row = $res->fetch_assoc() ;
+  session_start();
+  include "db.php"; 
 
-  $nama =$row['nama_user'];
-  $nip =$row['nip'];
-  $level =$row['level_user'];
-  $jabatan =$row['jabatan'];
+  if($_SESSION){
+   /**
+   * Session GET 
+   */
+  $nip = $_SESSION['nip'];
+  $nama_user = $_SESSION['nama_user'];
+  $jabatan = $_SESSION['jabatan'];
+  $level_user = $_SESSION['level_user'];    
+  echo "<meta http-equiv='refresh' content='0; url=layout/index.php'>"; 
   
+  }
+
+  echo "<meta http-equiv='refresh' content='0; url=./'>"; 
+
+
+
 ?>

@@ -8,6 +8,8 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Morris.js charts -->
 <script src="../assets/bower_components/raphael/raphael.min.js"></script>
 <script src="../assets/bower_components/morris.js/morris.min.js"></script>
@@ -25,6 +27,9 @@
 <script src="../assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="../assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- DataTables -->
+<script src="../assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Slimscroll -->
 <script src="../assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -35,5 +40,19 @@
 <script src="../assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../assets/dist/js/demo.js"></script>
+
+<script>
+$('#table_data').DataTable();
+$('.select2').select2();
+$('#datepicker, #datepicker2').datepicker({
+  autoclose: true
+});
+window.setTimeout(function () {
+  $(".alert-message").fadeTo(500, 0).slideUp(500, function () {
+    $(this).remove();
+  });
+}, 2000);
+</script>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ $sql = "UPDATE `tbl_disposisi_surat` SET
  `tanggal_penyelesaian` =  '{$_POST['tanggal_penyelesaian']}' ,  
  `proses` =  '{$_POST['proses']}' WHERE `no_surat` = '$id' "; ; 
 
-$mysqli->query($sql) or die(mysql_error());
+$mysqli->query($sql) or die($mysqli->error);
 echo "<meta http-equiv='refresh' content='0; url=dash.php'>"; 
 
 }

@@ -5,25 +5,17 @@ $username=$_SESSION['login_user']; //Storing session.
 include("db.php");
 include("lv.php");
 
-if(empty($level)){
+if(empty($level_user)){
   header("location: index.php");
 }
 $id=$_REQUEST['no_surat'];
 
 if ($level=="kpl") {
-
-
-$edit = " SELECT sm.*,ssm.* FROM tbl_surat_masuk sm
-                  LEFT JOIN tbl_status_sm ssm on ssm.no_surat=sm.no_surat where sm.no_surat = '$id' ";
-
+$edit = " SELECT sm.*,ssm.* FROM tbl_surat_masuk sm LEFT JOIN tbl_status_sm ssm on ssm.no_surat=sm.no_surat where sm.no_surat = '$id' ";
 }
 
-
 if ($level=="wka") {
-$edit = " SELECT sm.*,ssm.*,ds.* FROM tbl_disposisi_surat ds
-                  LEFT JOIN tbl_status_sm ssm ON ds.no_surat = ssm.no_surat
-                  LEFT JOIN tbl_surat_masuk sm on ssm.no_surat=sm.no_surat  where ds.no_surat = '$id' ";
- 
+$edit = "SELECT sm.*,ssm.*,ds.* FROM tbl_disposisi_surat ds LEFT JOIN tbl_status_sm ssm ON ds.no_surat = ssm.no_surat LEFT JOIN tbl_surat_masuk sm on ssm.no_surat=sm.no_surat where ds.no_surat = '$id' ";
 }
 
 $hasil =  $mysqli->query($edit);

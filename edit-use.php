@@ -24,7 +24,7 @@ $sql = "UPDATE `tbl_pengguna` SET
 
  WHERE `nip` = '$id' "; 
 
-$mysqli->query($sql) or die(mysql_error());
+$mysqli->query($sql) or die($mysqli->error);
 echo "<meta http-equiv='refresh' content='0; url=dash.php'>";
 
 }

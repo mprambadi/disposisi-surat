@@ -3,7 +3,7 @@
   include("db.php");
   $username=$_SESSION['login_user']; //Storing session
   include("lv.php");
-  if(empty($level)){
+  if(empty($level_user)){
   header("location: index.php");
   }
   $query = $mysqli->query("select no_surat from tbl_surat_masuk ");
@@ -53,8 +53,8 @@
         'Kepala Sekolah',
         'undisposed')";
 
-      $mysqli->query($sql) or die(mysql_error());
-      $mysqli->query($sql1) or die(mysql_error());
+      $mysqli->query($sql) or die($mysqli->error);
+      $mysqli->query($sql1) or die($mysqli->error);
       header("location: dash.php"); 
 
     }
@@ -75,7 +75,7 @@
       '{$_POST['nama_user']}' ,  
       '{$_POST['jabatan']}' ,  
       '{$_POST['level_user']}'  ) "; 
-    $mysqli->query($sql) or die(mysql_error());
+    $mysqli->query($sql) or die($mysqli->error);
     header("location: dash.php");
     } 
 
@@ -639,8 +639,8 @@
 
 
                       <td>
-                        <a href=< ?php echo "detail-ds.php?no_surat=$data[no_surat]"; ?> class="btn btn-success btn-sm"> detail </a>
-                        <a href=< ?php echo "ds.php?no_surat=$data[no_surat]"; ?> class="btn btn-primary btn-sm"> disposisi </a>
+                        <a href= <?php echo "detail-ds.php?no_surat=$data[no_surat]"; ?> class="btn btn-success btn-sm"> detail </a>
+                        <a href= <?php echo "ds.php?no_surat=$data[no_surat]"; ?> class="btn btn-primary btn-sm"> disposisi </a>
 
                       </td>
                     </tr>
@@ -813,8 +813,8 @@
                     </td>
 
                     <td>
-                      <a href=< ?php echo "edit-use.php?edit=$data[nip]"; ?> class="btn btn-success btn-sm" >Edit</a>
-                      <a href=< ?php echo "edit-use.php?del=$data[nip]"; ?> class="btn btn-danger btn-sm " onclick="return confirm('Apakah anda yakin akan menghapus data ini?')">Delete</a>
+                      <a href= <?php echo "edit-use.php?edit=$data[nip]"; ?> class="btn btn-success btn-sm" >Edit</a>
+                      <a href= <?php echo "edit-use.php?del=$data[nip]"; ?> class="btn btn-danger btn-sm " onclick="return confirm('Apakah anda yakin akan menghapus data ini?')">Delete</a>
                     </td>
 
                   </tr>
