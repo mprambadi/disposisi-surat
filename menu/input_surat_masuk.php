@@ -1,6 +1,48 @@
 <?php 
+$kode_surats = array (
+"0|Pilih Kode Surat",
+"800|kepegawaian",
+"900|keuangan",
+"420|PENDIDIKAN",
+"421|Sekolah",
+"421.1|Pra Sekolah",
+"421.2|Sekolah Dasar",
+"421.3|Sekolah Menengah",
+"421.4|Sekolah Tinggi",
+"421.5|Sekolah Kejuruan",
+"421.6|Kegiatan Sekolah, Dies Natalis Lustrum",
+"421.7|Kegiatan Pelajar",
+"421.71|Reuni Darmawisata",
+"421.72|Pelajar Teladan",
+"421.73|Resimen Mahasiswa",
+"421.8|Sekolah Pendidikan Luar Biasa",
+"421.9|Pendidikan Luar Sekolah / Pemberantasan Buta Huruf",
+"422|Administrasi Sekolah",
+"422.1|Persyaratan Masuk Sekolah, Testing, Ujian, Pendaftaran, Mapras, Perpeloncoan",
+"422.2|Tahun Pelajaran",
+"422.3|Hari Libur",
+"422.4|Uang Sekolah, Klasifikasi Disini SPP",
+"422.5|Beasiswa",
+"423|Metode Belajar",
+"423.1|Kuliah",
+"423.2|Ceramah, Simposium",
+"423.3|Diskusi",
+"423.4|Kuliah Lapangan, Widyawisata, KKN, Studi Tur",
+"423.5|Kurikulum",
+"423.6|Karya Tulis",
+"423.7|Ujian",
+"424|Tenaga Pengajar, Guru, Dosen, Dekan, Rektor",
+"425|Sarana Pendidikan",
+"425.1|Gedung",
+"425.11|Gedung Sekolah",
+"425.12|Kampus",
+"425.13|Pusat Kegiatan Mahasiswa",
+"425.2|Buku",
+"425.3|Perlengkapan Sekolah  ");
+
 $message = 'hide';
   if ($_POST) { 
+
     $lokasi_file=$_FILES['nama_file']['tmp_name'];
     $nama_file=$_FILES['nama_file']['name'];
     $tipe = explode(".",$nama_file);
@@ -75,8 +117,13 @@ $message = 'hide';
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-check"></i> Sukses!</h4>
                 Data berhasil disimpan
-          </div>        
+          </div>
+          <?php 
+              $query = $mysqli->query("SELECT * FROM tbl_surat_masuk");
+              $nomor_surat = $query->num_rows+1;
+            ?>        
           <h3 class="box-title">Input Surat Masuk</h3>
+          <div class="no-surat hide"><?php echo $nomor_surat ?></div>
         </div>
         <!-- /.box-header -->
         <form class="form-horizontal" role="form" method="POST" action="" enctype="multipart/form-data">
@@ -84,7 +131,12 @@ $message = 'hide';
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Kode Surat</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="Kode Surat" name="kode_sm" required>
+                <select name="kode_sm"  data-size="5" class="form-control select2 kode-sm" data-live-search="true">
+                <?php foreach ($kode_surats as $kode_surat) : ?>
+                  <?php $kode_surat = explode('|',$kode_surat) ?>
+                  <option value="<?=$kode_surat[0]?>"><?=$kode_surat[0].' - '.$kode_surat[1] ?></option>
+                <?php endforeach; ?>
+                </select>
               </div>
             </div>
 
@@ -104,7 +156,7 @@ $message = 'hide';
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Nomor Agenda</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputPassword3" placeholder="Nomor Agenda" name="nomor_agenda" required>
+                <input type="text" class="form-control nomor_agenda" id="inputPassword3" placeholder="Nomor Agenda" name="nomor_agenda" required>
               </div>
             </div>
 
@@ -164,7 +216,7 @@ $message = 'hide';
             </div>
 
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Pegolah</label>
+              <label for="inputPassword3" class="col-sm-2 control-label">Pengolah</label>
               <div class="col-sm-4">
                 <input type="text" class="form-control" placeholder="Pengolah" value="<?php echo ($nama_user) ?>" readonly
                   name="pengolah">

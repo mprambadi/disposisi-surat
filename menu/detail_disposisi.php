@@ -98,7 +98,7 @@ $row = $hasil->fetch_array();
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Instruksi</label>
               <div class="col-sm-7">
-                <textarea class="form-control" id="inputPassword3" placeholder="Instruksi" name="instruksi" required rows="5" readonly><?= stripslashes($row['instruksi']) ?>
+                <textarea class="form-control textarea" id="inputPassword3" placeholder="Instruksi" name="instruksi" required rows="5" readonly><?= stripslashes($row['instruksi']) ?>
                 </textarea>
               </div>
             </div>

@@ -1,6 +1,6 @@
 <?php 
 $id=$_REQUEST['no_surat'];
-$edit = "select * from tbl_surat_masuk where no_surat='$id'";
+$edit = "SELECT * FROM tbl_surat_masuk t1 JOIN tbl_disposisi_surat t2 on t1.no_surat=t2.no_surat WHERE t1.no_surat='$id'";
 $hasil =  $mysqli->query($edit);
 $data = $hasil->fetch_array(); 
 $message = 'hide';
@@ -9,20 +9,10 @@ if ($_POST) {
   $wak=$_POST['diteruskan_kpd'];
   $imp=implode("-", $wak);
   foreach($_POST AS $key => $value) { $_POST[$key] =$value; } 
-    $sql = "INSERT INTO `tbl_disposisi_surat` ( 
-      `no_surat` , 
-      `instruksi` , 
-      `diteruskan_kpd`,
-      `proses`) 
-          VALUES(
-      '{$_POST['no_surat']}', 
-      '{$_POST['instruksi']}',  
-      '$imp',
-      'belum ditindak lanjuti')"; 
-    $sql1 = " UPDATE `tbl_status_sm` 
-         SET 
-      `status`='disposed' 
-       where `no_surat`='$id' ";
+  $sql = "UPDATE `tbl_disposisi_surat` SET  
+  `instruksi` =  '{$_POST['instruksi']}' ,  
+  `diteruskan_kpd` =  '$imp' 
+  WHERE `no_surat` = '$id' ";
     $mysqli->query($sql) or die($mysqli->error);
     $mysqli->query($sql1) or die($mysqli->error);
     $message = 'show';
@@ -72,7 +62,7 @@ if ($_POST) {
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Instruksi</label>
               <div class="col-sm-7">
-                <textarea class="form-control textarea" id="instruksi" placeholder="Instruksi" name="instruksi" required></textarea>
+                <textarea class="form-control textarea" id="instruksi" placeholder="Instruksi" name="instruksi" required><?php echo ($data[ "instruksi"]) ?></textarea>
               </div>
             </div>
 

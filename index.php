@@ -10,7 +10,7 @@ if(!empty($_SESSION['nip'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -21,8 +21,12 @@ if(!empty($_SESSION['nip'])) {
   <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="assets/dist/css/style.css">
+
   <!-- iCheck -->
   <link rel="stylesheet" href="assets/plugins/iCheck/square/blue.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,13 +39,15 @@ if(!empty($_SESSION['nip'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box animated bounceInUp">
   <div class="login-logo">
-    <a href="#"><b>Admin</b>LTE</a>
+    <a href="#"><b>Sistem Informasi Disposisi Surat</b></a>
+    <br>
+
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Sign in untuk masuk ke aplikasi</p>
 
     <form action="log_procces.php" method="post">
       <div class="form-group has-feedback">
@@ -71,6 +77,18 @@ if(!empty($_SESSION['nip'])) {
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
+<div class="login-box">
+  <div class="login-logo logo-height">
+    <div>
+      <img src="assets/img/logo.png" alt="" width='100px' height="100px" >
+    </div>
+    <div>
+      <a href="#" class="logo-text"><b>SMKN 14</b></a>
+    </div>
+  </div>
+  
+</div>
+
 
 <!-- jQuery 3 -->
 <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>

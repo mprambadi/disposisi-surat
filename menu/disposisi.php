@@ -42,7 +42,7 @@
                 $no = 1;
                 $query = $mysqli->query("SELECT sm.*,ssm.*,ds.* FROM tbl_disposisi_surat ds
                 LEFT JOIN tbl_status_sm ssm ON ds.no_surat = ssm.no_surat
-                LEFT JOIN tbl_surat_masuk sm on ssm.no_surat=sm.no_surat where ds.diteruskan_kpd LIKE '%$jabatan%' and ds.proses='unact'");
+                LEFT JOIN tbl_surat_masuk sm on ssm.no_surat=sm.no_surat where ds.diteruskan_kpd LIKE '%$jabatan%' and ds.proses='belum ditindak lanjuti'");
                 while($data = $query->fetch_array()){
                   ?>
                   <tr>

@@ -13,7 +13,7 @@ $res=$mysqli->query("SELECT count(status) as status FROM `tbl_status_sm` WHERE s
 $row = $res->fetch_assoc();
 $inboxsurat=$row['status'];
 
-$res1=$mysqli->query("SELECT count(status) as status FROM `tbl_status_sm` s LEFT JOIN tbl_disposisi_surat ds on ds.no_surat=s.no_surat WHERE diteruskan_kpd LIKE '%$jabatan%' and ds.proses='unact' ");
+$res1=$mysqli->query("SELECT count(status) as status FROM `tbl_status_sm` s LEFT JOIN tbl_disposisi_surat ds on ds.no_surat=s.no_surat WHERE diteruskan_kpd LIKE '%$jabatan%' and ds.proses='belum ditindak lanjuti' ");
 $row1 = $res1->fetch_assoc();
 $inboxdisposisi=$row1['status'];
 
@@ -30,7 +30,7 @@ switch ($level_user) {
     $inboxsurat=$row['status'];
     break;
   case 'wka':
-    $res=$mysqli->query("SELECT count(status) as status FROM `tbl_status_sm` s LEFT JOIN tbl_disposisi_surat ds on ds.no_surat=s.no_surat WHERE diteruskan_kpd LIKE '%$jabatan%' and ds.proses='unact' ");
+    $res=$mysqli->query("SELECT count(status) as status FROM `tbl_status_sm` s LEFT JOIN tbl_disposisi_surat ds on ds.no_surat=s.no_surat WHERE diteruskan_kpd LIKE '%$jabatan%' and ds.proses='belum ditindak lanjuti' ");
     $row = $res->fetch_assoc();
     $inboxsurat=$row['status'];
   default:
@@ -38,16 +38,16 @@ switch ($level_user) {
     break;
 }
 ?>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="./" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><img src="../assets/img/logo.png" width='40px' height='40px'></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"> <img src="../assets/img/logo.png" width='40px' height='40px'> <b>SMKN</b>14 </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -62,13 +62,13 @@ switch ($level_user) {
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="../assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="../assets/dist/img/avatar.png" class="user-image" alt="User Image">
               <span class="hidden-xs"><?=$nama_user?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="../assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../assets/dist/img/avatar.png" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo "$nama_user - $jabatan"; ?>
@@ -79,10 +79,7 @@ switch ($level_user) {
 
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
+                <div class="text-center">
                   <a href="../logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
@@ -119,6 +116,9 @@ switch ($level_user) {
       case 'input_disposisi':
         include "../menu/input_disposisi.php";
         break;        
+      case 'edit_disposisi':
+        include "../menu/edit_disposisi.php";
+        break;        
       case 'rekap_disposisi':
         include "../menu/rekap_disposisi.php";
         break;        
@@ -150,11 +150,11 @@ switch ($level_user) {
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
+    <!-- <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
     <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    reserved. -->
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed

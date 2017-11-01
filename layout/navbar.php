@@ -30,6 +30,12 @@ $status_disposisi = 'hide';
       $status_user = 'show';
       $input_user = 'show';
       $rekap_user = 'show';
+      $status_surat = 'show';
+      $input_surat = 'show';
+      $rekap_surat = 'show';
+      $inbox_surat = 'show';
+      $status_disposisi = 'show';
+      $inbox_disposisi = 'show';
       break;
     default:
 
@@ -43,10 +49,10 @@ $status_disposisi = 'hide';
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="../assets/dist/img/avatar.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?=$nama_user?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>

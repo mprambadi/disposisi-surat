@@ -99,8 +99,8 @@ if ($_REQUEST['edit'] ?? false) {
           <div class="col-sm-4">
             <select class="form-control" data-live-search="true" id="slct3" data-size="5" name="level_user" required>
               <option value="wka">Wakil Kepala Sekolah</option>
-              <option value="wka">Kepala Sekolah</option>
-              <option value="wka">Persuratan</option>
+              <option value="kpl">Kepala Sekolah</option>
+              <option value="pst">Persuratan</option>
   
             </select>
   

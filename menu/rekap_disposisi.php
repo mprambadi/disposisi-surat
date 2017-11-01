@@ -70,7 +70,7 @@
                     </td>
 
                     <?php 
-                      if ($data["proses"]=="Unact"){
+                      if ($data["proses"]=="belum ditindak lanjuti"){
                         $warna = "bg-red text-center";
                       }
                       else {
@@ -84,7 +84,7 @@
                     </td>
                     <?php if ($level_user=="kpl") { ?>
                     <td>
-                      <a href='<?php echo "edit-ds.php?no_surat=$data[no_surat]"; ?>' class="btn btn-success btn-sm btn-block">edit</a>
+                      <a href='<?php echo "?page=edit_disposisi&no_surat=$data[no_surat]"; ?>' class="btn btn-success btn-sm btn-block">edit</a>
                       <!-- <a href="" class="btn btn-danger btn-sm">delete</a>  -->
                     </td>
                     <?php }?>
