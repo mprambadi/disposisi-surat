@@ -6,4 +6,6 @@ incoming mail management on school
 
 - change filename from `db.example.php` to `db.php` add your configuration
 
-- import `example.sql` to your database 
+- import `example.sql` to your database
+
+- install bower component with `bower install`
